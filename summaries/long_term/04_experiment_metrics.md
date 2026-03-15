@@ -1,0 +1,65 @@
+# 长期总结-实验指标与结果
+
+## 1. 100 张评估子集默认基线
+
+目的：建立可复现的零样本整图推理基线。
+
+默认配置：
+
+- box_threshold = 0.25
+- text_threshold = 0.20
+- nms_threshold = 0.50
+
+结果文件：
+
+- 预测目录：[baseline_groundingdino_preds](/home/wangzhe/DroneP_VG/project_records/results/predictions/baseline_groundingdino_preds)
+- class-aware 指标：[evaluation_summary_groundingdino_baseline.md](/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_groundingdino_baseline.md)
+- class-unaware 指标：[evaluation_summary_groundingdino_baseline_class_unaware.md](/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_groundingdino_baseline_class_unaware.md)
+
+默认基线完整指标：
+
+- 图像处理完成：100/100
+- 预测文件数：100
+- 非空预测文件数：100
+- 总预测框数：2786
+- class-aware Acc@0.5 = 0.3077 (1562/5077)
+- class-aware Acc@0.75 = 0.2444 (1241/5077)
+- class-aware mAP@0.5 = 0.1367
+- Empty-image false positive rate = 0.0000 (0/0)
+- class-unaware Acc@0.5 = 0.4359
+- class-unaware Acc@0.75 = 0.3319
+- class-unaware mAP@0.5 = 0.3367
+
+## 2. 阈值搜索与当前最佳基线
+
+目的：在不改模型结构前提下，提高 class-aware 基线。
+
+搜索信息：
+
+- 搜索范围：6 组配置
+- 搜索汇总：[search_summary.md](/home/wangzhe/DroneP_VG/project_records/results/search/search_summary.md)
+- 搜索表格：[search_summary.tsv](/home/wangzhe/DroneP_VG/project_records/results/search/search_summary.tsv)
+- 完整运行记录：[full_runs](/home/wangzhe/DroneP_VG/project_records/results/search/full_runs)
+
+最佳配置：
+
+- box_threshold = 0.20
+- text_threshold = 0.20
+- nms_threshold = 0.40
+
+最佳基线结果：
+
+- 预测目录：[best_groundingdino_preds](/home/wangzhe/DroneP_VG/project_records/results/predictions/best_groundingdino_preds)
+- 指标文件：[evaluation_summary_groundingdino_best_class_aware.md](/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_groundingdino_best_class_aware.md)
+- 总预测框数：3648
+- class-aware Acc@0.5 = 0.3443 (1748/5077)
+- class-aware Acc@0.75 = 0.2624 (1332/5077)
+- class-aware mAP@0.5 = 0.1451
+- Empty-image false positive rate = 0.0000 (0/0)
+
+相对默认基线提升：
+
+- Acc@0.5：+0.0366
+- Acc@0.75：+0.0180
+- mAP@0.5：+0.0084
+- 预测框数：2786 -> 3648

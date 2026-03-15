@@ -39,7 +39,7 @@
 
 ### 2.4 GroundingDINO 零样本基线已打通
 
-- 已新增批量推理脚本：/home/wangzhe/DroneP_VG/run_groundingdino_baseline.py
+- 已新增批量推理脚本：/home/wangzhe/DroneP_VG/scripts/run_groundingdino_baseline.py
 - 已在 100 张正样本测试子集上完成 GroundingDINO CPU 基线推理
 - 已完成 6 组阈值搜索，并确定当前最佳 class-aware 配置：
   - box_threshold = 0.20
@@ -121,7 +121,7 @@
 单图：
 
 ```bash
-python /home/wangzhe/DroneP_VG/import_cv2.py single \
+python /home/wangzhe/DroneP_VG/scripts/import_cv2.py single \
   --image_path /path/to/image.jpg \
   --label_path /path/to/image.txt \
   --save_dir /path/to/output \
@@ -135,7 +135,7 @@ python /home/wangzhe/DroneP_VG/import_cv2.py single \
 批处理：
 
 ```bash
-python /home/wangzhe/DroneP_VG/import_cv2.py batch \
+python /home/wangzhe/DroneP_VG/scripts/import_cv2.py batch \
   --image_dir /path/to/images \
   --label_dir /path/to/labels \
   --save_dir /path/to/output \
@@ -179,7 +179,7 @@ python /home/wangzhe/DroneP_VG/import_cv2.py batch \
 使用方法：
 
 ```bash
-python /home/wangzhe/DroneP_VG/evaluate_detection_metrics.py \
+python /home/wangzhe/DroneP_VG/scripts/evaluate_detection_metrics.py \
   --gt_dir /home/wangzhe/DroneP_VG/visdrone_test_100/annotations \
   --pred_dir /your/prediction_dir \
   --output_md /your/output/evaluation_summary.md \

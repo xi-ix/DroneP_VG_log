@@ -21,11 +21,11 @@
 
 ### 1.2 工具链已打通
 
-- [import_cv2.py](/home/wangzhe/DroneP_VG/import_cv2.py)：支持高分辨率图像滑窗切片与标签映射
-- [analyze_extracted_dataset.py](/home/wangzhe/DroneP_VG/analyze_extracted_dataset.py)：可生成数据画像日志、分布图和切片展示样例
-- [evaluate_detection_metrics.py](/home/wangzhe/DroneP_VG/evaluate_detection_metrics.py)：可计算 Acc@0.5、Acc@0.75、mAP@0.5、空图误报率
-- [run_groundingdino_baseline.py](/home/wangzhe/DroneP_VG/run_groundingdino_baseline.py)：可批量运行 GroundingDINO 并输出评估脚本可读预测文件
-- [search_groundingdino_thresholds.py](/home/wangzhe/DroneP_VG/search_groundingdino_thresholds.py)：可自动完成多组阈值搜索并汇总结果
+- [import_cv2.py](/home/wangzhe/DroneP_VG/scripts/import_cv2.py)：支持高分辨率图像滑窗切片与标签映射
+- [analyze_extracted_dataset.py](/home/wangzhe/DroneP_VG/scripts/analyze_extracted_dataset.py)：可生成数据画像日志、分布图和切片展示样例
+- [evaluate_detection_metrics.py](/home/wangzhe/DroneP_VG/scripts/evaluate_detection_metrics.py)：可计算 Acc@0.5、Acc@0.75、mAP@0.5、空图误报率
+- [run_groundingdino_baseline.py](/home/wangzhe/DroneP_VG/scripts/run_groundingdino_baseline.py)：可批量运行 GroundingDINO 并输出评估脚本可读预测文件
+- [search_groundingdino_thresholds.py](/home/wangzhe/DroneP_VG/scripts/search_groundingdino_thresholds.py)：可自动完成多组阈值搜索并汇总结果
 
 ### 1.3 GroundingDINO 基线实验已完成
 

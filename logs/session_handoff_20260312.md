@@ -41,9 +41,9 @@
 
 ### 1.4 脚本能力已补齐
 
-- /home/wangzhe/DroneP_VG/import_cv2.py
+- /home/wangzhe/DroneP_VG/scripts/import_cv2.py
   - 现在已兼容 VisDrone 原生逗号标注格式
-- /home/wangzhe/DroneP_VG/analyze_extracted_dataset.py
+- /home/wangzhe/DroneP_VG/scripts/analyze_extracted_dataset.py
   - 可自动生成数据画像日志、分布图和切片展示样例
 
 ### 1.5 VS Code Remote 代理已配置
@@ -130,7 +130,7 @@ cd /home/wangzhe/GroundingDINO
 
 使用：
 
-- /home/wangzhe/DroneP_VG/evaluate_detection_metrics.py
+- /home/wangzhe/DroneP_VG/scripts/evaluate_detection_metrics.py
 
 真值目录：
 

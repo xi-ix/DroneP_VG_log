@@ -7,10 +7,10 @@
 在一次任务结束后，完成以下动作：
 
 1. 更新本次会话日志（session_log_YYYYMMDD.md）
-2. 更新长期总结（experiment_long_term_summary.md）
+2. 更新长期总结（experiment_long_term_summary.md 索引 + long_term/ 分文件）
 3. 更新阶段总结（progress_summary.md）
 4. 生成/更新当日交接（session_handoff_YYYYMMDD.md）
-5. 归档日志与结果到统一目录（project_records_YYYYMMDD/）
+5. 归档日志与结果到统一目录（project_records/）
 6. 完成 Git 提交与推送（用户未明确禁止时执行）
 
 ## 1. 文档更新规则
@@ -24,13 +24,17 @@
 - 产出结果（文件+路径）
 - 关键指标（写完整）
 
-### 1.2 experiment_long_term_summary.md
+### 1.2 长期总结（分文件）
 
 必须追加/更新：
 
-- 本次实验在长期视角的有效信息
-- 可复用脚本与文件路径
-- 关键指标与结论（只保留对后续实验有价值的信息）
+- [experiment_long_term_summary.md](/home/wangzhe/DroneP_VG/project_records/summaries/experiment_long_term_summary.md) 作为索引入口
+- [long_term/01_directory_overview.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/01_directory_overview.md)
+- [long_term/02_scripts_overview.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/02_scripts_overview.md)
+- [long_term/03_dataset_summary.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/03_dataset_summary.md)
+- [long_term/04_experiment_metrics.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/04_experiment_metrics.md)
+- [long_term/05_environment_and_constraints.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/05_environment_and_constraints.md)
+- [long_term/06_key_findings.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/06_key_findings.md)
 
 注意：
 
@@ -59,12 +63,12 @@
 
 创建目录：
 
-- /home/wangzhe/DroneP_VG/project_records_YYYYMMDD/
+- /home/wangzhe/DroneP_VG/project_records/
 
 至少包含：
 
 - logs/: session_handoff_*.md, session_log_*.md
-- summaries/: progress_summary.md, experiment_long_term_summary.md
+- summaries/: progress_summary.md, experiment_long_term_summary.md, long_term/*.md
 - results/: 本次新增指标文件、报告文件、图表、关键预测结果目录
 
 要求：
@@ -77,7 +81,7 @@
 在用户未明确要求“只整理不提交”时，执行：
 
 ```bash
-cd /home/wangzhe/DroneP_VG
+cd /home/wangzhe/DroneP_VG/project_records
 git status
 git add -A
 git commit -m "docs: update progress logs and experiment summaries (YYYY-MM-DD)"

@@ -12,7 +12,7 @@
 
 ### 1.2 GroundingDINO 基线推理脚本已落地
 
-- 新增脚本：/home/wangzhe/DroneP_VG/run_groundingdino_baseline.py
+- 新增脚本：/home/wangzhe/DroneP_VG/scripts/run_groundingdino_baseline.py
 - 功能：
   - 批量读取图像目录
   - 使用 GroundingDINO 进行开放词汇检测
@@ -71,7 +71,7 @@
 
 ```bash
 cd /home/wangzhe/DroneP_VG
-/home/wangzhe/miniconda3/envs/qwen_vl/bin/python run_groundingdino_baseline.py \
+/home/wangzhe/miniconda3/envs/qwen_vl/bin/python scripts/run_groundingdino_baseline.py \
   --device cpu \
   --image_dir /home/wangzhe/DroneP_VG/visdrone_test_100/images \
   --output_dir /home/wangzhe/DroneP_VG/visdrone_test_100/baseline_groundingdino_preds
@@ -81,7 +81,7 @@ cd /home/wangzhe/DroneP_VG
 
 ```bash
 cd /home/wangzhe/DroneP_VG
-/home/wangzhe/miniconda3/envs/qwen_vl/bin/python evaluate_detection_metrics.py \
+/home/wangzhe/miniconda3/envs/qwen_vl/bin/python scripts/evaluate_detection_metrics.py \
   --gt_dir /home/wangzhe/DroneP_VG/visdrone_test_100/annotations \
   --pred_dir /home/wangzhe/DroneP_VG/visdrone_test_100/baseline_groundingdino_preds \
   --output_md /home/wangzhe/DroneP_VG/visdrone_test_100/evaluation_summary_groundingdino_baseline.md \
@@ -92,7 +92,7 @@ cd /home/wangzhe/DroneP_VG
 
 ```bash
 cd /home/wangzhe/DroneP_VG
-/home/wangzhe/miniconda3/envs/qwen_vl/bin/python evaluate_detection_metrics.py \
+/home/wangzhe/miniconda3/envs/qwen_vl/bin/python scripts/evaluate_detection_metrics.py \
   --gt_dir /home/wangzhe/DroneP_VG/visdrone_test_100/annotations \
   --pred_dir /home/wangzhe/DroneP_VG/visdrone_test_100/baseline_groundingdino_preds \
   --output_md /home/wangzhe/DroneP_VG/visdrone_test_100/evaluation_summary_groundingdino_baseline_class_unaware.md

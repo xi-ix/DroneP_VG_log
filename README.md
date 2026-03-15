@@ -36,8 +36,9 @@
 - summaries/: 可长期维护的阶段总结
 - results/: 可复现实验结果与汇报素材
 
-## 说明
+## 维护约定
 
-- 此目录通过“复制”方式整理，未移动原始文件。
-- 若后续继续实验，建议按日期新增新的 project_records_YYYYMMDD 目录，避免覆盖历史快照。
-# DroneP_VG_log
+- 后续有用的日志与总结统一保存在 `project_records/` 下。
+- 不再在 `DroneP_VG` 根目录单独保留 markdown 日志文件。
+- 本目录是当前 Git 仓库根目录，后续提交与推送都在本目录执行。
+

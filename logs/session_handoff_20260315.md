@@ -6,7 +6,7 @@
 
 ### 1.1 GroundingDINO 阈值搜索已完成
 
-- 搜索脚本：/home/wangzhe/DroneP_VG/search_groundingdino_thresholds.py
+- 搜索脚本：/home/wangzhe/DroneP_VG/scripts/search_groundingdino_thresholds.py
 - 搜索规模：6 组配置
 - 搜索目录：/home/wangzhe/DroneP_VG/visdrone_test_100/groundingdino_threshold_search
 - 搜索结果汇总：/home/wangzhe/DroneP_VG/visdrone_test_100/groundingdino_threshold_search/search_summary.md
