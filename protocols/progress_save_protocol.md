@@ -78,6 +78,13 @@
 
 ## 3. Git 操作规则
 
+当前环境约束：
+
+- 当前仓库位于服务器侧。
+- 推送到 GitHub 时需要走本机代理。
+- 本机代理端口为 `7897`。
+- 若直接 `git push` 失败，优先检查/使用代理配置，而不是反复长时间重试。
+
 在用户未明确要求“只整理不提交”时，执行：
 
 ```bash
@@ -85,6 +92,15 @@ cd /home/wangzhe/DroneP_VG/project_records
 git status
 git add -A
 git commit -m "docs: update progress logs and experiment summaries (YYYY-MM-DD)"
+git push
+```
+
+如推送异常，优先做短时检查：
+
+```bash
+cd /home/wangzhe/DroneP_VG/project_records
+git config --global http.proxy socks5://127.0.0.1:7897
+git config --global https.proxy socks5://127.0.0.1:7897
 git push
 ```
 
