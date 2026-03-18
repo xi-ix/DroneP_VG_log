@@ -33,4 +33,5 @@
 ## 3. 2026-03-18 维护更新
 
 - 已核对脚本能力描述与当前仓库脚本路径一致。
-- 本次未新增脚本功能；现有脚本结论继续有效。
+- 本次新增训练脚本：`/home/wangzhe/DroneP_VG/scripts/train_external_calibrator_stageA.py`。
+- 新增能力：支持 epoch 级 TSV 进度落盘与终端可视化进度，已用于 Stage A 外接模块 40/200 epoch 训练。

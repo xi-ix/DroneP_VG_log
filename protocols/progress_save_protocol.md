@@ -8,10 +8,9 @@
 在一次任务结束后，完成以下动作：
 
 1. 更新本次会话日志（session_log_YYYYMMDD.md）
-2. 更新长期总结（experiment_long_term_summary.md 索引 + long_term/ 分文件）
-3. 更新阶段总结（progress_summary.md）
+2. 更新汇总报告/home/wangzhe/DroneP_VG/project_records/logs/experiment_report.md
 4. 生成/更新当日交接（session_handoff_YYYYMMDD.md）
-5. 归档日志与结果到统一目录（project_records/）
+5. 追加长期汇总报告(/home/wangzhe/DroneP_VG/project_records/summaries/long_term/)
 6. 完成 Git 提交与推送（用户未明确禁止时执行）
 
 ## 1. 文档更新规则
@@ -26,10 +25,8 @@
 - 关键指标（写完整）
 
 ### 1.2 长期总结（分文件）
-
-必须追加/更新：
-
-- [experiment_long_term_summary.md](/home/wangzhe/DroneP_VG/project_records/summaries/experiment_long_term_summary.md) 作为索引入口
+在有特别要求的时候再更新，否则不更新。不用每次都修改这个文件夹。
+追加/更新：
 - [long_term/01_directory_overview.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/01_directory_overview.md)
 - [long_term/02_scripts_overview.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/02_scripts_overview.md)
 - [long_term/03_dataset_summary.md](/home/wangzhe/DroneP_VG/project_records/summaries/long_term/03_dataset_summary.md)
@@ -42,13 +39,9 @@
 - 不写“接下来做什么”
 - 删除过时或已被新结果替代的结论
 
-### 1.3 progress_summary.md
+### 1.3 /home/wangzhe/DroneP_VG/project_records/logs/experiment_report.md.md
 
-同步当前阶段状态：
-
-- 已完成内容（新增项）
-- 当前有效结果（更新数字）
-- 当前存在问题（真实阻塞）
+添加实验报告，内容包括：实验目的方法和结果、关键指标、实验总结。
 
 ### 1.4 session_handoff_YYYYMMDD.md
 

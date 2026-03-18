@@ -1,46 +1,46 @@
-# Project Records Bundle (2026-03-18)
+# Project Records 文档说明（精简版）
 
-本目录用于集中存放当前阶段可直接上传到 Git 的日志、总结与实验结果产物。
+本目录只保留一套清晰规则：
 
-## 目录结构
+1. 实验阶段报告只维护一个文件：`logs/experiment_report.md`
+2. `summaries/` 仅保留 `long_term/` 下长期文档（不做阶段汇总）
+3. 其他实验证据统一放在 `results/`
 
-- logs/
-  - session_handoff_20260312.md
-  - session_handoff_20260314.md
-  - session_handoff_20260315.md
-  - session_handoff_20260318.md
-  - session_log_20260315.md
-  - session_log_20260318.md
-- summaries/
-  - progress_summary.md
-  - experiment_long_term_summary.md
-- results/
-  - report_summary_20260315.md
-  - metrics/
-    - evaluation_summary_groundingdino_baseline.md
-    - evaluation_summary_groundingdino_baseline_class_unaware.md
-    - evaluation_summary_groundingdino_best_class_aware.md
-  - search/
-    - search_summary.md
-    - search_summary.tsv
-    - full_runs/groundingdino_threshold_search/ (完整参数搜索产物)
-  - report_subset_120_assets/
-    - data_processing_log.md
-    - data_distribution.png
-    - slice_showcase.png
-  - predictions/
-    - baseline_groundingdino_preds/ (100 张默认基线预测)
-    - best_groundingdino_preds/ (100 张当前最佳基线预测)
+## 目录与文档功能
 
-## 用途说明
+- `assets/`
+  - 功能：静态资料与开题材料（如 `plan.pdf`）。
 
-- logs/: 每次会话和阶段整理日志
-- summaries/: 可长期维护的阶段总结
-- results/: 可复现实验结果与汇报素材
+- `protocols/`
+  - 功能：流程规范文档。
+  - 关键文件：`protocols/progress_save_protocol.md`
 
-## 维护约定
+- `logs/`
+  - 功能：过程日志与唯一实验报告。
+  - `logs/experiment_report.md`：唯一阶段实验报告（每次仅追加“目的/方法/结果”）。
+  - `logs/session_log_YYYYMMDD.md`：会话记录。
+  - `logs/session_handoff_YYYYMMDD.md`：交接记录。
 
-- 后续有用的日志与总结统一保存在 `project_records/` 下。
-- 不再在 `DroneP_VG` 根目录单独保留 markdown 日志文件。
-- 本目录是当前 Git 仓库根目录，后续提交与推送都在本目录执行。
+- `summaries/long_term/`
+  - 功能：长期稳定知识库（目录、脚本、数据、指标、环境、结论）。
+  - 说明：该路径下文件保持不动。
+
+- `results/`
+  - 功能：实验原始产物与结果证据。
+  - `results/metrics/`：评估与分析文档（按子目录分组）。
+  - `results/predictions/`：预测文件目录。
+  - `results/search/`：参数搜索产物。
+  - `results/report_subset_120_assets/`：汇报图与数据画像资产。
+
+## 当前阅读建议
+
+1. 先看：`logs/experiment_report.md`
+2. 再看：`results/metrics/` 对应指标文件
+3. 需要背景时看：`summaries/long_term/`
+
+## 维护规则
+
+- 新实验完成后，只更新 `logs/experiment_report.md`（目的/方法/结果三段）。
+- 不再新增阶段性总结文件到 `summaries/`。
+- 结果文件按现有路径分类存放，确保可复现。
 

@@ -27,4 +27,8 @@
 ## 4. 2026-03-18 维护更新
 
 - 已确认 `project_records/` 目录结构与用途保持稳定。
-- 本次无新增目录级实验产物，核心结果入口不变。
+- 本次新增关键产物已纳入统一目录：
+	- 训练脚本：`/home/wangzhe/DroneP_VG/scripts/train_external_calibrator_stageA.py`
+	- 长训练评估：`/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/evaluation_summary_fusion_stageA_extcal_longrun_20260318_class_aware.md`
+	- 滑窗评估：`/home/wangzhe/DroneP_VG/project_records/results/metrics/sliding_window_experiments/evaluation_summary_groundingdino_sliding_window_bestcfg_20260318_class_aware.md`
+	- 指标说明：`/home/wangzhe/DroneP_VG/project_records/protocols/note.md`
