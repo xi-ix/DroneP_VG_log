@@ -40,5 +40,10 @@
 
 ## 5. 当前真实阻塞
 
-- GroundingDINO CUDA 扩展 `_C` 未编译，尚未启用 GPU 加速路径。
 - 在 VisDrone 密集小目标场景中，整图零样本 class-aware 性能仍偏弱。
+
+## 6. 2026-03-18 环境复核补充
+
+- 已完成运行时复核：`torch.cuda.is_available()=True`，CUDA 设备数为 6。
+- 已确认 `groundingdino._C` 可成功导入，模块路径为 `/home/wangzhe/GroundingDINO/groundingdino/_C.cpython-310-x86_64-linux-gnu.so`。
+- 结论：GroundingDINO CUDA 扩展在当前环境已可用，GPU 推理路径已具备启用条件。

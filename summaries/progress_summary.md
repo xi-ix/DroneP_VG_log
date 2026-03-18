@@ -257,7 +257,7 @@ python /home/wangzhe/DroneP_VG/scripts/evaluate_detection_metrics.py \
 ## 5. 当前存在的问题
 
 - import_cv2.py 当前默认读取的是空格分隔 xyxy 标注，不直接读取 VisDrone 原生逗号格式。
-- GroundingDINO 当前在 CPU fallback 模式下可运行，但 CUDA 自定义扩展 `_C` 仍未编译，尚未启用 GPU 加速。
+- 零样本整图推理在 VisDrone 密集小目标场景中的 class-aware 指标仍偏弱。
 
 ## 6. 2026-03-18 维护性进度更新
 
@@ -275,10 +275,14 @@ python /home/wangzhe/DroneP_VG/scripts/evaluate_detection_metrics.py \
 
 ### 6.3 当前存在问题（真实阻塞）
 
-- GroundingDINO `_C` 扩展未编译，GPU 路径尚未打通。
 - 零样本整图推理在密集小目标场景下仍偏弱，类别语义错配仍是主要误差来源。
 - 当前最佳基线仍属于零样本整图推理，对 VisDrone 密集小目标场景适配有限。
 - 当前尚未把滑窗切片策略接入真实检测模型链路。
+
+### 6.4 环境核查结论（2026-03-18）
+
+- 运行时核查已通过：`torch.cuda.is_available()=True`，可见 CUDA 设备数为 6。
+- `groundingdino._C` 已可成功导入，GPU 推理路径可用。
 
 ## 6. 下一步建议
 
@@ -286,7 +290,7 @@ python /home/wangzhe/DroneP_VG/scripts/evaluate_detection_metrics.py \
 
 1. 把滑窗切片策略接入 GroundingDINO 或其他检测器，验证对小目标场景的收益。
 2. 按成功案例和失败案例各选 3 到 5 张图，形成中期展示素材。
-3. 若需要缩短实验时长，再处理 `_C` 扩展编译与 GPU 推理链路。
+3. 补齐 GPU 运行基准（耗时、吞吐、显存占用）并与当前 CPU 记录对照。
 
 ## 8. 最新产物
 

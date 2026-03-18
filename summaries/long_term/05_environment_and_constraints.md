@@ -9,13 +9,13 @@
 - 权重文件可用：[groundingdino_swint_ogc.pth](/home/wangzhe/GroundingDINO/weights/groundingdino_swint_ogc.pth)
 - 权重大小：662MB
 - 依赖兼容版本：transformers==4.33.2，tokenizers==0.13.3
-- 当前 CUDA 自定义扩展 `_C` 未编译成功
-- 当前实验使用 CPU fallback 模式完成
+- CUDA 自定义扩展 `_C` 可成功导入
+- GPU 推理路径已具备启用条件
 
 ## 2. 运行侧影响
 
 - 现有环境可稳定复现实验结果
-- 大规模实验速度会受 CPU fallback 限制
+- 可在 GPU 路径下开展加速实验，后续需补充实际耗时基准
 - 当前主要性能瓶颈是密集小目标与类别语义对齐，不是评估链路
 
 ## 3. 记录口径
@@ -29,5 +29,5 @@
 
 ## 4. 2026-03-18 维护更新
 
-- 当前环境约束未变化：GroundingDINO 仍以 CPU fallback 路径运行。
+- 环境状态已更新：`torch.cuda.is_available()=True`，`groundingdino._C` 导入成功。
 - 依赖与评估口径保持稳定，可直接用于后续对照实验。
