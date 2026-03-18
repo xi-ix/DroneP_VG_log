@@ -55,3 +55,8 @@
 - [data_distribution.png](/home/wangzhe/DroneP_VG/project_records/results/report_subset_120_assets/data_distribution.png)
 - [slice_showcase.png](/home/wangzhe/DroneP_VG/project_records/results/report_subset_120_assets/slice_showcase.png)
 - 综合报告：[report_summary_20260315.md](/home/wangzhe/DroneP_VG/project_records/results/report_summary_20260315.md)
+
+## 3. 2026-03-18 维护更新
+
+- 已完成数据子集统计口径复核：100 张评估子集与 120 张报告子集统计值维持不变。
+- 本次未新增抽样或替换操作，现有数据子集结果继续作为后续实验固定输入。

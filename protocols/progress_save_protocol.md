@@ -2,6 +2,7 @@
 
 当用户说“按照 progress_save_protocol.md 保存进度”时，按以下流程执行，不跳步。
 
+注意目录是project_records/，不是project_records/summaries/
 ## 0. 执行目标
 
 在一次任务结束后，完成以下动作：

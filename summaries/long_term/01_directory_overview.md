@@ -23,3 +23,8 @@
 - 最佳 class-aware 指标：[evaluation_summary_groundingdino_best_class_aware.md](/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_groundingdino_best_class_aware.md)
 - 阈值搜索汇总：[search_summary.md](/home/wangzhe/DroneP_VG/project_records/results/search/search_summary.md)
 - 120 张综合报告：[report_summary_20260315.md](/home/wangzhe/DroneP_VG/project_records/results/report_summary_20260315.md)
+
+## 4. 2026-03-18 维护更新
+
+- 已确认 `project_records/` 目录结构与用途保持稳定。
+- 本次无新增目录级实验产物，核心结果入口不变。

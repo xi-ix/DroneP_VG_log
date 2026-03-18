@@ -29,3 +29,8 @@
 3. [install_groundingdino_compat.sh](/home/wangzhe/DroneP_VG/scripts/install_groundingdino_compat.sh)
 目的：快速安装 GroundingDINO 兼容版本依赖。
 结果：可统一安装 transformers==4.33.2 与 tokenizers==0.13.3 并执行版本验证。
+
+## 3. 2026-03-18 维护更新
+
+- 已核对脚本能力描述与当前仓库脚本路径一致。
+- 本次未新增脚本功能；现有脚本结论继续有效。

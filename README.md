@@ -1,4 +1,4 @@
-# Project Records Bundle (2026-03-15)
+# Project Records Bundle (2026-03-18)
 
 本目录用于集中存放当前阶段可直接上传到 Git 的日志、总结与实验结果产物。
 
@@ -8,7 +8,9 @@
   - session_handoff_20260312.md
   - session_handoff_20260314.md
   - session_handoff_20260315.md
+  - session_handoff_20260318.md
   - session_log_20260315.md
+  - session_log_20260318.md
 - summaries/
   - progress_summary.md
   - experiment_long_term_summary.md

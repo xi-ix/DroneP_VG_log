@@ -29,3 +29,8 @@
 - 最优指标：[evaluation_summary_groundingdino_best_class_aware.md](/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_groundingdino_best_class_aware.md)
 - 搜索汇总：[search_summary.md](/home/wangzhe/DroneP_VG/project_records/results/search/search_summary.md)
 - 综合报告：[report_summary_20260315.md](/home/wangzhe/DroneP_VG/project_records/results/report_summary_20260315.md)
+
+## 6. 2026-03-18 维护更新
+
+- 已确认关键结论在当前阶段仍成立，无需替换。
+- 本次未出现可覆盖旧结论的新实验证据。
