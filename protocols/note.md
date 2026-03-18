@@ -32,3 +32,20 @@
 - 含义：在 IoU=0.5 条件下，按类别计算 AP 后取平均得到 mAP。
 - AP（Average Precision）反映 Precision-Recall 曲线下面积；mAP 是各类别 AP 的均值。
 - 作用：相比单一 Acc 指标，mAP 同时考虑排序质量、召回和精度，更全面评估检测性能。
+
+### 6) cfg02 
+是你在滑窗网格搜索里定义的一组具体参数配置（第 2 个配置）：
+
+1. 参数含义  
+- 窗口大小：896×896  
+- 重叠率：0.20  
+- 该批实验固定阈值：box=0.20, text=0.20, nms=0.40  
+见 sw_grid_summary_20260318.md 和 sw_grid_summary_20260318.md。
+
+2. 它在你当前结果中的地位  
+- 在反馈策略（epsilon-greedy bandit）里被选为 best arm（最优策略臂）  
+见 evaluation_summary_feedback_stageB_20260318.md。
+
+3. 该配置对应指标（当前记录）  
+- Acc@0.5=0.3817, Acc@0.75=0.2840, mAP@0.5=0.1541  
+见 sw_grid_summary_20260318.md。

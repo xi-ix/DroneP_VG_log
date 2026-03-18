@@ -1,0 +1,3 @@
+# Local large model checkpoints (do not version in this logs repo)
+results/metrics/lightweight_optimization/finetune_feasibility_headplus_20260318/groundingdino_swint_ogc_finetuned_feasibility.pth
+results/metrics/lightweight_optimization/finetune_feasibility_small_20260318/groundingdino_swint_ogc_finetuned_feasibility.pth

@@ -82,3 +82,51 @@
   - mAP@0.5 = 0.1322
   - Empty-image false positive rate = 0.0000 (0/0)
 - 候选集可达性上限（oracle 覆盖）：Acc@0.5 = 0.4130 (2097/5077)
+
+## 8. 2026-03-18 深夜补充（RL 对照 + 主模型微调 + Exp-09 对照）
+
+### 本次做了什么
+- 完成外接模块 RL 奖励重构：图像级检测指标导向增益、RL 早停、best checkpoint 回载、阈值/NMS 受限搜索。
+- 完成两组外接对照：
+  - reward 对齐对照（Exp-10）；
+  - reward 偏召回权重对照（Exp-11）。
+- 新增 GroundingDINO 小样本微调可行性脚本：`scripts/finetune_groundingdino_feasibility.py`。
+- 执行两轮主模型微调验证：
+  - 小样本可行性（10 图，1 epoch，head）；
+  - 参数量提升（20 图，2 epoch，head_plus）。
+- 使用“参数量提升后”的微调主模型，完成 Exp-09 同口径对照（Exp-14）。
+
+### 这么做的目的
+- 验证“仅调外接模块”与“主模型微调后再接外接模块”两条路线的增益差异。
+- 用小样本快速证明主模型微调在当前环境可执行，并评估其对核心指标的实际贡献。
+
+### 产出结果（文件 + 路径）
+- 外接 reward 对齐对照：
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.json`
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.md`
+- 外接偏召回权重对照：
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.json`
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.md`
+- 微调可行性（head）：
+  - `/home/wangzhe/DroneP_VG/scripts/finetune_groundingdino_feasibility.py`
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/finetune_feasibility_small_20260318/feasibility_summary.json`
+- 微调参数量提升（head_plus）：
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/finetune_feasibility_headplus_20260318/feasibility_summary.json`
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/finetune_feasibility_headplus_20260318/groundingdino_swint_ogc_finetuned_feasibility.pth`
+- 微调主模型 + Exp-09 同口径对照：
+  - `/home/wangzhe/DroneP_VG/project_records/results/predictions/fullimage_groundingdino_finetuned_headplus_20260318`
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_finetuned_headplus_exp9cmp_20260318.json`
+  - `/home/wangzhe/DroneP_VG/project_records/results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_finetuned_headplus_exp9cmp_20260318.md`
+
+### 关键指标（完整）
+- Exp-10（奖励对齐 + 早停 + 受限搜索）：
+  - Acc@0.5=0.4038, Acc@0.75=0.3014, mAP@0.5=0.1634, Pred boxes=5654
+- Exp-11（偏召回权重 acc05_weight=0.90）：
+  - Acc@0.5=0.4038, Acc@0.75=0.3010, mAP@0.5=0.1625, Pred boxes=5667
+- 微调可行性（10 图，head）：
+  - subset Acc@0.5: 0.2664 -> 0.2889（+0.0225）
+- 微调参数量提升（20 图，head_plus，trainable=479）：
+  - subset Acc@0.5: 0.3016 -> 0.3378（+0.0363）
+- Exp-14（微调主模型 + Exp-09 同口径链路）：
+  - Acc@0.5=0.4113, Acc@0.75=0.3021, mAP@0.5=0.1685, Pred boxes=5542, Empty FP=0.0000
+  - 相对 Exp-09：Acc@0.5 +0.0014，Acc@0.75 -0.0097，mAP@0.5 +0.0356

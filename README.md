@@ -38,6 +38,18 @@
 2. 再看：`results/metrics/` 对应指标文件
 3. 需要背景时看：`summaries/long_term/`
 
+## 2026-03-18 最新结果入口
+
+- Exp-10（奖励对齐 + 早停 + 受限搜索）：
+  - `results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.md`
+- Exp-11（偏召回 reward 权重）：
+  - `results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.md`
+- Exp-13（参数量小幅提升微调，可行性）：
+  - `results/metrics/lightweight_optimization/finetune_feasibility_headplus_20260318/feasibility_summary.json`
+- Exp-14（微调主模型 + Exp-09 同口径对照，当前推荐查看）：
+  - `results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_finetuned_headplus_exp9cmp_20260318.md`
+  - `results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_finetuned_headplus_exp9cmp_20260318.json`
+
 ## 维护规则
 
 - 新实验完成后，只更新 `logs/experiment_report.md`（目的/方法/结果三段）。
