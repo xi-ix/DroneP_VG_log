@@ -1,3 +1,7 @@
-# Local large model checkpoints (do not version in this logs repo)
-results/metrics/lightweight_optimization/finetune_feasibility_headplus_20260318/groundingdino_swint_ogc_finetuned_feasibility.pth
-results/metrics/lightweight_optimization/finetune_feasibility_small_20260318/groundingdino_swint_ogc_finetuned_feasibility.pth
+# Local training checkpoints and model weights (do not version in this logs repo)
+# Note: .gitignore cannot filter by file size, so we ignore common weight extensions.
+results/metrics/lightweight_optimization/**/*.pth
+results/metrics/lightweight_optimization/**/*.pt
+results/metrics/lightweight_optimization/**/*.ckpt
+results/metrics/lightweight_optimization/**/*.bin
+results/metrics/lightweight_optimization/**/*.safetensors
