@@ -50,6 +50,15 @@
   - `results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_finetuned_headplus_exp9cmp_20260318.md`
   - `results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_finetuned_headplus_exp9cmp_20260318.json`
 
+## 2026-03-27 文档产出入口
+
+- Exp-15（中期报告四页排版）：
+  - `summaries/midterm_report_ppt_4pages_20260327.md`
+  - `summaries/midterm_report_ppt_4pages_concise_20260327.md`
+- 当日日志与交接：
+  - `logs/session_log_20260327.md`
+  - `logs/session_handoff_20260327.md`
+
 ## 维护规则
 
 - 新实验完成后，只更新 `logs/experiment_report.md`（目的/方法/结果三段）。
