@@ -59,6 +59,11 @@
   - `logs/session_log_20260327.md`
   - `logs/session_handoff_20260327.md`
 
+## 方法总览入口（详细）
+
+- 项目方法总览（长期维护）：
+  - `summaries/long_term/07_methodology_full.md`
+
 ## 维护规则
 
 - 新实验完成后，只更新 `logs/experiment_report.md`（目的/方法/结果三段）。
