@@ -1,2 +1,0 @@
-epoch	mean_loss	mean_cls_loss	mean_box_loss	num_updates	elapsed_sec
-1	0.205146	0.188919	0.003245	10	165.657
