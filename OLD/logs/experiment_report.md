@@ -191,10 +191,6 @@
   - 划分内 test（分类与检测代理指标）；
   - 全量 100 图 official 评估（class-aware）。
 
-### 实验结果
-- 训练过程日志：[external_calibrator_stageA_hybrid_sl_rl_20260318_progress.tsv](DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_20260318_progress.tsv)
-- 模型输出：[external_calibrator_stageA_hybrid_sl_rl_20260318.json](DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_20260318.json)
-- 测试评估：[evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_20260318.md](DroneP_VG/project_records/results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_20260318.md)
 
 - 划分内 test（训练脚本自动测试）：
   - test_cls_loss=0.6707
@@ -234,11 +230,6 @@
   - SL：`epochs=60, hidden=64, lr=0.002`
   - RL：`epochs=60, hidden=32, lr=0.0008, entropy=0.001`
 
-### 实验结果
-- 训练日志：[external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318_progress.tsv](DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318_progress.tsv)
-- 模型结果：[external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.json](DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.json)
-- 官方评估：[evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.md](DroneP_VG/project_records/results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_rewarded_20260318.md)
-
 - 训练关键事件：
   - best RL epoch=46（best_val_objective=0.3928）
   - early stop 于 epoch 54 触发并回载 best checkpoint
@@ -275,11 +266,6 @@
   - `rl_reward_nms_iou=0.60`
   - early stop（patience=8, min_delta=2e-4）+ best checkpoint 回载
   - 搜索约束：`threshold∈[0.10,0.40]`，`nms∈{0.40,0.50,0.60,0.70}`
-
-### 实验结果
-- 训练日志：[external_calibrator_stageA_hybrid_sl_rl_recall90_20260318_progress.tsv](DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_recall90_20260318_progress.tsv)
-- 模型结果：[external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.json](DroneP_VG/project_records/results/metrics/lightweight_optimization/external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.json)
-- 官方评估：[evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.md](DroneP_VG/project_records/results/metrics/evaluation_summary_external_calibrator_stageA_hybrid_sl_rl_recall90_20260318.md)
 
 - 训练关键事件：
   - best RL epoch=58（best_val_objective=0.4252）
