@@ -1,2 +1,0 @@
-# Local training checkpoints and model weights (do not version in this logs repo)
-# Note: .gitignore cannot filter by file size, so we ignore common weight extensions.
