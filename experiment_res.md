@@ -59,16 +59,16 @@
 
 ### Exp28 真 query 输入 Grounding Scorer
 - 目录：`experiment/exp28_text_query_grounding_scorer_20260515`
-- 目的：第一次把模型形式改成真正 `image + text query + candidate boxes -> query-box matching score`。
-- 文本表示：动态 text hash feature + query semantic priors。
-- full 指标：Acc@0.5=`0.4676`、Acc@0.75=`0.3121`、continuous mAP@0.5=`0.1004`、VOC2007 11-point mAP@0.5=`0.1295`。
-- 结论：语言输入链路跑通，但 hash text 表达能力弱，指标没有超过 Exp26/Exp27。
-
-### Exp29 词表文本编码 + Grounding TopK
-- 目录：`experiment/exp29_vocab_text_grounding_eval_20260515`
-- 目的：用可学习词表 embedding 替代 hash text，并新增 grounding 专用 `query -> TopK box Recall` 评估。
-- full detection-style 指标：Acc@0.5=`0.4677`、Acc@0.75=`0.3123`、continuous mAP@0.5=`0.1025`、VOC2007 11-point mAP@0.5=`0.1242`。
-- full grounding 指标：query count=`5422`、Recall@1=`0.2979`、Recall@5=`0.4825`、Recall@10=`0.5791`、mean first hit rank=`20.32`。
-- 类别观察：`car` 最强（R@1=`0.8482`、R@10=`0.9904`），`pedestrian` 次之（R@1=`0.4969`、R@10=`0.7640`）；`awning tricycle`、`motor`、`people` 较弱。
-- 修正记录：初次 TopK 评估因 GT 读取器复用 6 列 prediction parser，跳过 5 列 GT，导致 `query_count=0`；已修复并使用 checkpoint 重算。
+- 目的：第一次把模型形式改成真正 `image + text query + candidate boxes -> query-box matching score`。之前 Exp25-27 的语言信号均以固定伪先验方式注入，Exp28 是首次让文本 query 作为动态输入参与打分。
+- 模型架构：4 层 MLP（`input_dim → 96 → 96 → 48 → 1`），带 LayerNorm + ReLU。
+- 输入特征拼接：`[box geometry (11)] + [A context RGB stats (8)] + [B refined RGB stats (8)] + [B-A delta (8)] + [area ratios (2)] + [query semantic priors (7)] + [hashed text embedding (24)]`，共约 60 维。
+- 文本表示：
+  - **Hashed text embedding（24 维）**：分词后对每个 token 计算 bucket hash（`sum(ord(ch)) % 24`）和 sign hash（`sum(ord(ch) * (idx+1)) % 2 → ±1`），归一化得到 24 维向量。
+  - **Query semantic priors（7 维）**：`is_small_target`、`is_vehicle`、`is_person`、`compactness_prior`、`contrast_gain × is_small_target`、`context_contrast × is_vehicle`、`refine_contrast × is_person`。
+- Query 模板：10 类 × 3 模板 = 30 个 query 训练；推理仅用 canonical query（每类 1 个，如 `pedestrian`、`car`、`motor`）。
+- 训练目标：`loss = BCE(gt_label) + 0.7 × BCE(teacher_soft_label)`，仅当 query class == 候选框 class 时计算 label。
+- 后处理：val 集搜索 threshold ∈ {0.03, 0.04, 0.05, 0.06, 0.08}、NMS ∈ {0.45, 0.50, 0.55, 0.60}，objective = `0.5 × Acc@0.5 + 0.5 × mAP@0.5`。
+- Best checkpoint：epoch 22，val objective=0.2956；best postprocess：threshold=0.03, NMS=0.60。
+- full 指标：Acc@0.5=`0.4676`、Acc@0.75=`0.3121`、continuous mAP@0.5=`0.1004`、VOC2007 11-point mAP@0.5=`0.1295`、预测框数=123823。
+- 训练观察：val Acc@0.5 几乎不变（~0.481），分类能力主要来自视觉特征；val mAP@0.5 在 0.098~0.110 波动；hash text 区分度有限，不同类别 query hash 可能碰撞。
 - 结论：Exp29 是目前最接近最终“语言 + 图片定位目标”目标的一版。下一步优先接入 `RefDrone` / `AerialVG` 真实语言标注或更强预训练文本/视觉语言编码器。
